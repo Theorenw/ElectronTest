@@ -1,7 +1,8 @@
+// Main process for the entire app
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
-// Step 1 - hello world
+// Create the app window
 function createWindow() {
 	const mainWindow = new BrowserWindow({
 		width: 800,
@@ -16,23 +17,26 @@ function createWindow() {
 	mainWindow.loadFile("index.html");
 }
 
-// Step 1 - hello world
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 app.whenReady().then(() => {
 	createWindow();
 
+	// On macOS it's common to re-create a window in the app when the
+	// dock icon is clicked and there are no other windows open.
 	app.on("activate", function () {
 		if (BrowserWindow.getAllWindows().length === 0) createWindow();
 	});
 });
 
-// Step 1 - hello world
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on("window-all-closed", function () {
 	if (process.platform !== "darwin") app.quit();
 });
 
-//
-// Step 2 - Switching between windows
-//
+// ipcMain handles messages sent from a renderer process (web page)
 ipcMain.on("switch-to-about", (event) => {
 	const focusedWindow = BrowserWindow.getFocusedWindow();
 	focusedWindow.loadFile("about.html");

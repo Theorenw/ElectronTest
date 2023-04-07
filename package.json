@@ -1,15 +1,15 @@
 {
   "name": "electrontest",
   "version": "1.0.0",
-  "description": "Electron app",
+  "description": "COMP-2068 Electron Lesson",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "author": "Theoren",
-  "license": "ISC",
+  "author": "Theoren Weber and Andrew Souvanlasy",
+  "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.1.1",
     "@electron-forge/maker-deb": "^6.1.1",

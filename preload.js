@@ -1,3 +1,7 @@
+// Add version numbers for Chrome, Node, and Electron to the HTML page.
+//
+// This preload script will run before the HTML page is loaded.
+// It enables the use of Node APIs in the renderer process.
 window.addEventListener("DOMContentLoaded", () => {
 	const replaceText = (selector, text) => {
 		const element = document.getElementById(selector);
